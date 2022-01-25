@@ -33,7 +33,7 @@ Add this entry in the table:
 `192.168.90.135 	server2`
 
 Now save the file and type below command on the terminal of both machines.
-`# ping server1`
+`# ping server2`
 
 Output will be:
 
