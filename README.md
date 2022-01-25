@@ -1,6 +1,6 @@
 # High Availability Cluster with DRBD and Pacemaker/Corosync
 
-In this tutorial we are going to learn how to use DRBD (Distributed Redundant Block Device) and Heart beat for server synchronization under High Availability. We will also configure Squid for that purpose later in it.
+In this tutorial we are going to learn how to use DRBD (Distributed Redundant Block Device) and Pacemaker/Corosync for server synchronization under High Availability. We will also configure Squid for that purpose later in it.
 
 Follow these steps to achieve the goal.
 
