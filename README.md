@@ -1,6 +1,6 @@
 # High Availability Cluster with DRBD and Pacemaker/Corosync
 
-In this tutorial we are going to learn how to use DRBD (Distributed Redundant Block Device) and Pacemaker/Corosync for server synchronization under High Availability. We will also configure Squid for that purpose later in it.
+In this tutorial we are going to learn how to use DRBD (Distributed Redundant Block Device) and Heart beat for server synchronization under High Availability. We will also configure Squid for that purpose later in it.
 
 Follow these steps to achieve the goal.
 
@@ -16,6 +16,7 @@ Follow these steps to achieve the goal.
  6. [Setting up DRBD](#step-6-setting-up-drbd)
  7. [Setting up Pacemaker/Corosync](#step-7-setting-up-pacemakercorosync)
  8. [Setting Up Squid Server](#step-8-setting-up-squid-server)
+ 9. [Configuring CentOS client on proxy](#step-7-configuring-centos-client-on-proxy)
 
 	 
 
@@ -33,7 +34,7 @@ Add this entry in the table:
 `192.168.90.135 	server2`
 
 Now save the file and type below command on the terminal of both machines.
-`# ping server2`
+`# ping server1`
 
 Output will be:
 
@@ -359,7 +360,7 @@ Now create DRBD resource by typing:
 
 Now up the created resource by:
 
-`drbdadm up resource0`
+`# drbdadm up resource0`
 
 Do these above all step on the `server2` as well otherwise connection will not be established.
 
@@ -559,5 +560,26 @@ Now for redirecting client port type the following command.
 
 `# iptables -t nat -A PREROUTING -p tcp -i eth0 --dport 80 -j REDIRECT --to-port 3128`
 
+## Step-7: Configuring CentOS client on proxy
+
+First open the server proxy file by:
+
+`# vi /etc/profile.d/proxyserver.sh`
+
+Insert the following entries in it.
+
+>MY_PROXY_URL="192.168.90.134:3128"
+HTTP_PROXY=$ MY_PROXY_URL
+HTTPS_PROXY=$ MY_PROXY_URL
+FTP_PROXY=$ MY_PROXY_URL
+http_proxy=$ MY_PROXY_URL
+https proxy=$ MY_PROXY_URL
+ftp_proxy=$MY_PROXY_URL
+
+Now source the file typing the below command.
+
+`# source /etc/profile.d/proxyserver.sh`
 
 
+ALL DONE!! Now you have successfully installed High Availability cluster.
+Enjoy!!
