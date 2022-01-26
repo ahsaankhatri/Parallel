@@ -44,8 +44,6 @@ Output will be:
 64 bytes from server2 (192.168.90.135): icmp_seq=3 ttl=64 time=0.102 ms
 bytes from server2 (192.168.90.135): icmp_seq=4 ttl=64 time=0.105 ms
 
-Change `server1` to `server2` for second machine.
-
 ## Step-2: Stopping unnecessary services
 In this step we have to stop unnecessary services like Sendmail and Bluetooth But since my both server doesn't have Sendmail service so I will only stop Bluetooth services. To stop it type below command.
 
