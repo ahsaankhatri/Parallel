@@ -558,7 +558,7 @@ Now for redirecting client port type the following command.
 
 `# iptables -t nat -A PREROUTING -p tcp -i eth0 --dport 80 -j REDIRECT --to-port 3128`
 
-## Step-7: Configuring CentOS client on proxy
+## Step-9: Configuring CentOS client on proxy
 
 First open the server proxy file by:
 
