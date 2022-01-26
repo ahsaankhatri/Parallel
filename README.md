@@ -349,7 +349,7 @@ Now allow the port `7788` on the firewall to avoid any kind of issue.
 Starting DRBD module by typing following command.
 `# modprobe drbd`
 
-If you want to start this services at system startup the type the following command.
+If you want to start this services at system startup then type the following command.
 
 `# echo “modprobe drbd” >> /etc/rc.local`
 
